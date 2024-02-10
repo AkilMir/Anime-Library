@@ -1,9 +1,9 @@
 import {useEffect, useState} from 'react';
-
+import AnimeCard from './AnimeCard';
 
 //import Card from './Card';
 import './App.css';
-import SearchIcon from './search.svg';
+import SearchIcon from './search.png';
 
 const API = "https://api.jikan.moe/v4/anime?q=";
 
@@ -174,11 +174,13 @@ const anime1 = {
 }
 
 const App = () => {
-
+  
+  const [searchAnimeTitle, setSearch] = useState("");
+  const [animes, mappedAnime] = useState([]);
     const searchAnime = async (title) => {
         const response = await fetch(`${API}${title}&sfw`);
         const data = await response.json();
-        console.log(data.data);
+        mappedAnime(data.data);
     }
 
     useEffect(() => {
@@ -192,24 +194,24 @@ const App = () => {
         <div className = "app">
             <h1>Anime Library</h1>
             <div className="search">
-                <input placeholder = "Search for movies" value = "JJK" onChange={() => {}}/>
+                <input 
+                placeholder = "Search for anime" 
+                onChange={(e) => setSearch(e.target.value)}
+                />
                 <img src = {SearchIcon} alt = "search" onClick = {() => {}}/>
             </div>
+            {animes?.length > 0 ? (
+              <div className="container">
 
-            <div className = "container">
-                <div className = "anime">
-                    <div>
-                        <p>{anime1.year}</p>
-                    </div>
-                    <div>
-                        <img src={anime1.images.jpg.image_url !== 'N/A' ? anime1.images.jpg.image_url : 'https://via.placeholder.com/400'} alt={anime1.title}/>
-                    </div>
-                    <div>
-                        <span>{anime1.type}</span>
-                        <h3>{anime1.title}</h3>
-                    </div>
-                </div>
-            </div>
+              {animes.map((anime) => ( 
+                 <AnimeCard anime = {anime}/> 
+              ))}
+              </div>
+            ) : (
+              <div className="empty">
+                <h2>No movies found</h2>
+              </div>
+            )}
         </div>
     );
 };
