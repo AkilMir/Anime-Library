@@ -16,6 +16,7 @@ const App = () => {
         const response = await fetch(`${API}${title}&sfw`);
         const data = await response.json();
         mappedAnime(data.data);
+        console.log(data.data);
     }
 
     useEffect(() => {
