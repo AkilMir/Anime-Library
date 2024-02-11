@@ -5,10 +5,6 @@ const AnimeCard = ({anime: { year, images, title, type } }) => {
         <div className = "anime">
             <div>
                 <p>{year}</p>
-<<<<<<< HEAD
-=======
-                 <p>{genres.name}</p>
->>>>>>> 54a7507b5954161ae375081a6507b0d5245b0ef3
             </div>
             <div>
                 <img src={images.jpg.image_url !== 'N/A' ? images.jpg.image_url : 'https://via.placeholder.com/400'} alt={title}/>
