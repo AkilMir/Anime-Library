@@ -184,21 +184,27 @@ const App = () => {
     }
 
     useEffect(() => {
-        searchAnime('Bleach');
+        searchAnime('');
     }, []);
-      
-    
 
+    const handleKeyDown = (event) => {
+        // Check if the pressed key is Enter (key code 13)
+        if (event.key === 'Enter') {
+          searchAnime(searchAnimeTitle);
+        }
+    };
 
     return (
         <div className = "app">
             <h1>Anime Library</h1>
             <div className="search">
                 <input 
-                placeholder = "Search for anime" 
+                placeholder = "Search for anime"
+                value = {searchAnimeTitle} 
+                onKeyDown={handleKeyDown}
                 onChange={(e) => setSearch(e.target.value)}
                 />
-                <img src = {SearchIcon} alt = "search" onClick = {() => {}}/>
+                <img src = {SearchIcon} alt = "search" onClick = {() => searchAnime(searchAnimeTitle)}/>
             </div>
             {animes?.length > 0 ? (
               <div className="container">
