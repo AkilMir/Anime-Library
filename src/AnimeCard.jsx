@@ -5,7 +5,7 @@ const AnimeCard = ({anime: { year, images, title, type, genres} }) => {
         <div className = "anime">
             <div>
                 <p>{year}</p>
-                <p>{genres[0].name}</p>
+                 <p>{genres.name}</p>
             </div>
             <div>
                 <img src={images.jpg.image_url !== 'N/A' ? images.jpg.image_url : 'https://via.placeholder.com/400'} alt={title}/>
