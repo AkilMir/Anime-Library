@@ -1,5 +1,8 @@
 @import url("https://fonts.googleapis.com/css?family=Roboto+Slab:100,300,400,700");
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i");
+@import url("https://fonts.googleapis.com/css?family=Karla:400,400i,700,700i");
+@import url("https://fonts.googleapis.com/css?family=Oxygen:300,400,700");
+@import url("https://fonts.googleapis.com/css?family=Barlow:300,400,500,600,700,800,900");
 
 * {
   margin: 0;
@@ -10,11 +13,14 @@
 :root {
   --font-roboto: "Roboto Slab", serif;
   --font-raleway: "Raleway", sans-serif;
+  --font-karla: "Karla", sans-serif;
+  --font-oxygen: "Oxygen", sans-serif;
+  --font-barlow: "Barlow", sans-serif;
 }
 
 body {
-  font-family: var(--font-roboto);
-  background-color: #1a1c1e;
+  font-family: var(--font-karla);
+  background-color: rgb(14, 17, 18);
 }
 
 .app {
@@ -27,14 +33,15 @@ body {
 }
 
 h1 {
-  font-size: 3rem;
-  letter-spacing: 0.9px;
+  font-size: 4.75rem;
+  letter-spacing: 0;
   background: linear-gradient(
     
-    rgb(117, 125, 190) 0%,
-    rgba(81, 87, 58, 0.943) 100%
+    rgb(60, 75, 190) 30%,
+    rgba(200, 212, 197, 0.943) 100%
   );
   background-clip: text;
+  font-family: "Karla", sans-serif;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   width: fit-content;
@@ -51,20 +58,19 @@ h1 {
   padding: 1.5rem 1.75rem;
   border-radius: 3rem;
   background: #1f2123;
-  -webkit-box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
-  box-shadow: 5px 5px 7px #1c1d1f, -5px -5px 7px #222527;
+  -webkit-box-shadow: 5px 5px 7px #000000, -5px -5px 7px #222527;
+  box-shadow: 5px 5px 7px #000000, -5px -5px 7px #222527;
 }
 
 .search input {
   flex: 1;
   border: none;
   font-size: 1.5rem;
-  font-family: var(--font-raleway);
+  font-family: var(--font-oxygen);
   font-weight: 500;
   padding-right: 1rem;
-
   outline: none;
-  color: #a1a1a1;
+  color: #cbd1c4;
   background: #1f2123;
 }
 
@@ -108,7 +114,7 @@ h1 {
 .container {
   width: 100%;
   margin-top: 3rem;
-
+  font-family: var(--font-barlow) ;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -119,14 +125,13 @@ h1 {
   width: 310px;
   height: 460px;
   margin: 1.5rem;
-
   position: relative;
   border-radius: 12px;
   overflow: hidden;
   border: none;
 
   transition: all 0.4s cubic-bezier(0.175, 0.885, 0, 1);
-  box-shadow: 0px 13px 10px -7px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 13px 10px -7px rgba(113, 112, 112, 0.1);
 }
 
 .anime div:nth-of-type(1) {
@@ -135,11 +140,22 @@ h1 {
   width: 100%;
   opacity: 0;
   top: 0;
-  color: #f9d3b4;
+  color: #d8d0c9;
+}
+
+.year:hover {
+  position: absolute;
+  padding: 16px;
+  width: 100%;
+  opacity: 0;
+  top: 0;
+  color: #000000;
+  transform: scale(2., 2);
 }
 
 .anime:hover {
-  box-shadow: 0px 30px 18px -8px rgba(0, 0, 0, 0.1);
+  box-shadow:  1px 1px 8px 8px
+  rgba(255, 247, 247, 0.97);
   transform: scale(1.05, 1.05);
 }
 
@@ -155,7 +171,8 @@ h1 {
 
 .anime div:nth-of-type(3) {
   z-index: 2;
-  background-color: #343739;
+  background-color: rgba(49, 51, 53, 0.809);
+
   padding: 16px 24px 24px 24px;
 
   position: absolute;
@@ -176,7 +193,11 @@ h1 {
 .anime div:nth-of-type(3) h3 {
   margin-top: 5px;
   font-family: "Roboto Slab", serif;
-  color: #f9d3b4;
+  color: rgb(235, 225, 218);
+  font-size: 20px;
+  font-family: "Barlow", sans-serif;
+  -webkit-text-stroke-width: 0.3px;
+  -webkit-text-stroke-color: black;
 }
 
 .anime:hover div:nth-of-type(2) {
